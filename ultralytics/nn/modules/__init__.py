@@ -61,6 +61,7 @@ from .block import (
     TorchVision,
 )
 from .conv import (
+    GBS,
     GSConv,
     CBAM,
     ChannelAttention,
