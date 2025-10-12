@@ -730,3 +730,18 @@ class GSConv(nn.Module):
         y = x2.reshape(x2.shape[0], 2, x2.shape[1] // 2, x2.shape[2], x2.shape[3])
         y = y.permute(0, 2, 1, 3, 4)
         return y.reshape(y.shape[0], -1, y.shape[3], y.shape[4])
+
+
+class GBS(nn.Module):
+    default_act = nn.SiLU()  # default activation
+    def __init__(self, c1, c2, k=1, s=1, p=None, g=1, d=1, act=True):
+        super().__init__()
+        self.gsconv =  GSConv(c1, c2, k, s, p, g, d, act)
+        self.bn = nn.BatchNorm2d(c2)
+        self.act = self.default_act if act is True else act if isinstance(act, nn.Module) else nn.Identity()
+
+    def forward(self, x):
+        return self.act(self.bn(self.gsconv(x)))
+
+    def forward_fuse(self, x):
+        return self.act(self.gsconv(x))
