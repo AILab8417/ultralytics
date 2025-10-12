@@ -1576,7 +1576,8 @@ def parse_model(d, ch, verbose=True):
     ch = [ch]
     layers, save, c2 = [], [], ch[-1]  # layers, savelist, ch out
     base_modules = frozenset(
-        {
+        {   
+            GSConv,
             Classify,
             Conv,
             ConvTranspose,
