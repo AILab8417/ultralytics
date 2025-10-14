@@ -748,7 +748,7 @@ class GBS(nn.Module):
 
 
 class WF_Concat(nn.Module):
-    def __init__(self, dimension=1, eps = 1e-4, number_of_feature_maps = 3):
+    def __init__(self, dimension=1, number_of_feature_maps=3 ,eps=1e-4):
         super().__init__()
         self.d = dimension
         self.eps = eps
