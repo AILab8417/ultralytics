@@ -745,3 +745,17 @@ class GBS(nn.Module):
 
     def forward_fuse(self, x):
         return self.act(self.gsconv(x))
+
+
+class WF_Concat(nn.Module):
+    def __init__(self, dimension=1, eps = 1e-4, number_of_feature_maps = 3):
+        super().__init__()
+        self.d = dimension
+        self.eps = eps
+        self.weights = nn.Parameter(torch.ones(number_of_feature_maps))
+
+    def forward(self, x: list[torch.Tensor]):
+        weights = torch.softmax(self.weights, dim = 0)
+        weighted_x = [x_i * w_i for (x_i, w_i) in zip (x, weights)]
+        x_cat = torch.cat(weighted_x, self.d)
+        return x_cat
