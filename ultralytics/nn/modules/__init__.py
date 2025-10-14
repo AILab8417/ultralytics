@@ -61,6 +61,7 @@ from .block import (
     TorchVision,
 )
 from .conv import (
+    WF_Concat,
     GBS,
     GSConv,
     CBAM,
