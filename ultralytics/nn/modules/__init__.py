@@ -61,9 +61,6 @@ from .block import (
     TorchVision,
 )
 from .conv import (
-    WF_Concat,
-    GBS,
-    GSConv,
     CBAM,
     ChannelAttention,
     Concat,
@@ -79,6 +76,8 @@ from .conv import (
     RepConv,
     SpatialAttention,
 )
+
+
 from .head import (
     OBB,
     Classify,
@@ -182,4 +181,16 @@ __all__ = (
     "TorchVision",
     "Index",
     "A2C2f",
+)
+
+
+####################################### Custom modules ######################################
+from .conv import (
+  WF_Concat,
+  GBS,
+  GSConv,
+  GAM_Attention,
+  ShuffleAttention,
+  ECAAttention,
+  MHSA
 )
