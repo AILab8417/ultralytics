@@ -22,7 +22,8 @@ from ultralytics.nn.modules import (
   EMA,
   ScConv,
   C2f_ScConv,
-  C2f_DCNv2
+  C2f_DCNv2,
+  C2f_Faster
 )
 
 from ultralytics.nn.autobackend import check_class_names
@@ -1592,7 +1593,8 @@ def parse_model(d, ch, verbose=True):
     ch = [ch]
     layers, save, c2 = [], [], ch[-1]  # layers, savelist, ch out
     base_modules = frozenset(
-        {   CSRG,
+        {   C2f_Faster
+            CSRG,
             C2f_DCNv2,
             C2f_ScConv,
             GBS,
@@ -1634,7 +1636,8 @@ def parse_model(d, ch, verbose=True):
         }
     )
     repeat_modules = frozenset(  # modules with 'repeat' arguments
-        {   CSRG,
+        {   C2f_Faster
+            CSRG,
             C2f_DCNv2,
             C2f_ScConv,
             BottleneckCSP,
