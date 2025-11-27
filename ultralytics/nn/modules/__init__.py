@@ -74,7 +74,7 @@ from .conv import (
     Index,
     LightConv,
     RepConv,
-    SpatialAttention,
+    SpatialAttention
 )
 
 
@@ -194,7 +194,8 @@ from .conv import (
   ECAAttention,
   MHSA,
   EMA,
-  ScConv
+  ScConv,
+  VoVGSCSP
 )
 
 from .block import (
