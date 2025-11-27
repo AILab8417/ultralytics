@@ -786,24 +786,24 @@ class GSBottleneckC(GSBottleneck):
         self.shortcut = DWConv(c1, c2, 3, 1, act=False)
 
 
-class VoVGSCSP(nn.Module):
-    # VoVGSCSP module with GSBottleneck
-    def __init__(self, c1, c2, n=1, shortcut=True, g=1, e=0.5):
-        super().__init__()
-        c_ = int(c2 * e)  # hidden channels
-        self.cv1 = Conv(c1, c_, 1, 1)
-        # self.cv2 = Conv(c1, c_, 1, 1)
-        # self.gc1 = GSConv(c_, c_, 1, 1)
-        self.gc2 = GSConv(c1, c_, 3, 1, 1)
-        self.m = C2f(c_, c_, 1, 1)
-        # self.res = Conv(c_, c_, 3, 1, act=False)
-        self.cv3 = Conv(2*c_, c2, 1)  #
+# class VoVGSCSP(nn.Module):
+#     # VoVGSCSP module with GSBottleneck
+#     def __init__(self, c1, c2, n=1, shortcut=True, g=1, e=0.5):
+#         super().__init__()
+#         c_ = int(c2 * e)  # hidden channels
+#         self.cv1 = Conv(c1, c_, 1, 1)
+#         # self.cv2 = Conv(c1, c_, 1, 1)
+#         # self.gc1 = GSConv(c_, c_, 1, 1)
+#         self.gc2 = GSConv(c1, c_, 3, 1, 1)
+#         self.m = C2f(c_, c_, 1, 1)
+#         # self.res = Conv(c_, c_, 3, 1, act=False)
+#         self.cv3 = Conv(2*c_, c2, 1)  #
 
-    def forward(self, x):
+#     def forward(self, x):
 
-        x1 = self.m(self.cv1(x))
-        y = self.gc2(x)
-        return self.cv3(torch.cat((y, x1), dim=1))
+#         x1 = self.m(self.cv1(x))
+#         y = self.gc2(x)
+#         return self.cv3(torch.cat((y, x1), dim=1))
 
 
 class VoVGSCSPC(VoVGSCSP):
