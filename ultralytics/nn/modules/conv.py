@@ -806,12 +806,12 @@ class GSBottleneckC(GSBottleneck):
 #         return self.cv3(torch.cat((y, x1), dim=1))
 
 
-class VoVGSCSPC(VoVGSCSP):
-    # cheap VoVGSCSP module with GSBottleneck
-    def __init__(self, c1, c2, n=1, shortcut=True, g=1, e=0.5):
-        super().__init__(c1, c2, e)
-        c_ = int(c2 * e)  # hidden channels
-        self.gsb = GSBottleneckC(c_, c_, 3, 1)
+# class VoVGSCSPC(VoVGSCSP):
+#     # cheap VoVGSCSP module with GSBottleneck
+#     def __init__(self, c1, c2, n=1, shortcut=True, g=1, e=0.5):
+#         super().__init__(c1, c2, e)
+#         c_ = int(c2 * e)  # hidden channels
+#         self.gsb = GSBottleneckC(c_, c_, 3, 1)
 
 
 class WF_Concat(nn.Module):
