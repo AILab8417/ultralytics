@@ -1594,7 +1594,7 @@ def parse_model(d, ch, verbose=True):
     ch = [ch]
     layers, save, c2 = [], [], ch[-1]  # layers, savelist, ch out
     base_modules = frozenset(
-        {   VoVGSCSP
+        {   VoVGSCSP,
             C2f_Faster,
             CSRG,
             C2f_DCNv2,
@@ -1638,7 +1638,7 @@ def parse_model(d, ch, verbose=True):
         }
     )
     repeat_modules = frozenset(  # modules with 'repeat' arguments
-        {   VoVGSCSP
+        {   VoVGSCSP,
             C2f_Faster,
             CSRG,
             C2f_DCNv2,
