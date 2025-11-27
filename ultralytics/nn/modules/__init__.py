@@ -195,12 +195,12 @@ from .conv import (
   MHSA,
   EMA,
   ScConv,
-  VoVGSCSP
 )
 
 from .block import (
    C2f_ScConv,
    C2f_DCNv2,
    CSRG,
-   C2f_Faster
+   C2f_Faster,
+   VoVGSCSP
 )
