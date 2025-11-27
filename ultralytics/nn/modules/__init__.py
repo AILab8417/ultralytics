@@ -202,5 +202,6 @@ from .block import (
    C2f_DCNv2,
    CSRG,
    C2f_Faster,
-   VoVGSCSP
+   VoVGSCSP,
+   C2f_DCNv3
 )
