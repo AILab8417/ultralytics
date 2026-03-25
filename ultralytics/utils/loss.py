@@ -133,7 +133,7 @@ class BboxLoss(nn.Module):
         # loss_iou = ((1.0 - iou) * weight).sum() / target_scores_sum
         
 ############################################################## Inner-WIoU loss begin ########################################################################
-        iou = bbox_in_Wiou(pred_bboxes[fg_mask], target_bboxes[fg_mask], xywh=False, WIoU=True, scale=True, ratio=1.0)  #, ratio=0.95，1.05, 1.15, 1.25, 1.35
+        iou = bbox_in_Wiou(pred_bboxes[fg_mask], target_bboxes[fg_mask], xywh=False, InWIoU=True, scale=True, ratio=1.0)  #, ratio=0.95，1.05, 1.15, 1.25, 1.35
 
         if type(iou) is tuple:  
             if len(iou) == 2:
